@@ -6,6 +6,8 @@ import { addDocuments } from '../db/chromaSetup.js';
 import askGroq from '../ai/aiUtils.js';
 
 import gemini from '../utils/gemini.js';
+import { geminiImage } from '../utils/gemini.js';
+
 router.post('/addDocument' , async(req , res)=>{
     const {document , userId  ,fileId} = req?.body;
     if(!document || !userId || !fileId) {
@@ -49,6 +51,23 @@ router.get('/askGeminiText' , async(req , res)=>{
     res.status(400).json({json:"Please Provide valid prompt" , success:false , error: error.message});
     
   }
+
+})
+
+router.get('/askGeminiImage' , async(req ,res)=>{
+    const {prompt , imgUrl} = req.body;
+    if(!prompt || !imgUrl){
+        res.status(400).json({message:"Please send both image url and prompt"});
+        return;
+    }
+
+    try {
+        const response = await geminiImage(prompt , imgUrl);
+     res.status(200).json({message:"Succesfully parsed" , success:true , content:response});
+     return;
+    } catch (error) {
+        res.status(400).json({json:"Please Provide valid prompt" , success:false , error: error.message});
+    }
 
 })
 export default router;
