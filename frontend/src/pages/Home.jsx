@@ -10,16 +10,38 @@ import VoiceRecorder from "@/components/VoiceRecorder";
 const Home = () => {
   const isLoading = false;
   const [inputValue, setInputValue] = useState("");
+  const [inputText, setInputText] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [handwritingData, setHandwritingData] = useState(null);
   const [voiceData, setVoiceData] = useState(null);
+  const [recordedAudio, setRecordedAudio] = useState(null);
+  const [showRecorder, setShowRecorder] = useState(true);
 
   const handleFileUpload = (files) => {
     setUploadedFiles(files);
   };
 
   const handleVoiceSave = (audioUrl) => {
+    setRecordedAudio(audioUrl);
+  };
+
+  const handleRecordingComplete = (audioUrl) => {
     setVoiceData(audioUrl);
+    setShowRecorder(false); // Hide the recorder after saving
+  };
+
+  const handleTextButton = () => {
+    setInputText((prevText) => [...prevText, inputValue]);
+    setInputValue(""); // Clear the input field after adding the text
+    if (recordedAudio) {
+      setVoiceData(recordedAudio);
+      setRecordedAudio(null);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleTextButton();
+    }
   };
 
   return (
@@ -30,16 +52,25 @@ const Home = () => {
       </div>
 
       {/* Separator */}
-      <div className="mb-4 mx-auto w-1/4 ">
-        {/* <Separator className="my-4 w-full" /> */}
+      <div className="mb-4 mx-auto w-1/4">
         <hr />
       </div>
 
       {/* Main content area */}
       <div className="flex flex-col gap-4 justify-between">
         {/* Preview Column */}
-        <div className="w-1/2 mx-auto border border-gray-600 p-2 rounded-md ">
-          <h2 className="text-xl font-bold mb-2 mx-auto text-gray-600">Preview</h2>
+        <div className="w-1/2 mx-auto border border-gray-600 p-2 rounded-md max-h-[320px] overflow-y-auto">
+          <h2 className="text-xl font-bold mx-auto text-gray-600 mb-4">Preview</h2>
+
+          {/* handle text preview */}
+          {inputText.length > 0 &&
+            inputText.slice(-10).map((chat, index) => (
+              <div className="flex justify-end mb-4" key={index}>
+                <span className="bg-[#4c4a4b7c] text-white flex h-8 min-w-4 w-fit items-end p-4 pt-8 mr-2 rounded-3xl">
+                  {chat}
+                </span>
+              </div>
+            ))}
 
           {/* Preview Uploaded Files (images, pdf, videos) */}
           {uploadedFiles.map((file, idx) => {
@@ -80,25 +111,20 @@ const Home = () => {
           )}
         </div>
 
-
         {/* Input + Tools Column */}
         <div className="w-1/2 mx-auto mt-10 border p-4">
-
-        <div className="mb-2 p-4 ps-12 flex  gap-2 items-center">
-            
-        <VoiceRecorder onSave={handleVoiceSave} />
-            
-          </div>
-
+          {showRecorder && (
+            <div className="mb-2 p-4 ps-12 flex gap-2 items-center">
+              <VoiceRecorder onSave={handleVoiceSave} onRecordingComplete={handleRecordingComplete} />
+            </div>
+          )}
 
           {/* File Uploader (Drag & Drop) */}
-          <div className="mb-2 p-4 ps-12 flex  gap-2 items-center">
+          <div className="mb-2 p-4 ps-12 flex gap-2 items-center">
             <FileUploader onFileUpload={handleFileUpload} />
-            
           </div>
 
-
-          <div className="flex  ">
+          <div className="flex">
             <div className="mb-2 mx-auto">
               <Input
                 type="text"
@@ -107,6 +133,7 @@ const Home = () => {
                 className="rounded-full w-[500px] mb-2"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
             </div>
             {/* Submit Button */}
@@ -114,6 +141,7 @@ const Home = () => {
               variant="ghost"
               disabled={isLoading}
               className="rounded-full h-16 hover:text-blue-700 mx-auto"
+              onClick={handleTextButton}
             >
               <Send />
             </Button>

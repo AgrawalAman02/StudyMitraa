@@ -10,7 +10,7 @@ const FileUploader = ({ onFileUpload }) => {
 
   return (
     <div {...getRootProps()} className="border-dashed border-2 border-gray-400 p-4 rounded-lg text-center">
-      <input {...getInputProps()} accept="image/*,video/*,application/pdf" />
+      <input {...getInputProps()} accept="image/*,video/*,pdf" />
       {isDragActive ? (
         <p>Drop the files here...</p>
       ) : (
