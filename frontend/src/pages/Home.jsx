@@ -48,13 +48,12 @@ const Home = () => {
             setInputText((prevText) => [...prevText, newText]);
             
             const response = await axios.post("http://localhost:3000/ai/addDocument", {
-          document: text.trim(),
-          userId: "user123",
-          fileId: "defaultFileId"
+              document: text.trim(),
+              userId: "user123",
+              fileId: "defaultFileId"
             });
 
 
-            console.log(response.data);
             const nextOcrChat = {
               text: inputValue.trim(),
               type: "ocr",
@@ -113,25 +112,14 @@ const Home = () => {
         const result = await axios.post("http://localhost:3000/ai/addDocument", {
           document: text.trim(),
           userId: "user123",
-          fileId: file.name || "defaultFileId",
+          fileId:  "defaultFileId",
         });
 
-        console.log(result.data);
-        console.log(text);
-        const newText = {
-          text: text.trim(),
-          type: "ocr",
-          timestamp: new Date().toISOString(),
-        };
-        setInputText((prevText) => [...prevText, newText]);
+        console.log("result" , result);
+        
 
-        await axios.post("http://localhost:3000/ai/addDocument", {
-        document: text.trim(),
-        userId: "user123",
-        fileId: file.name || "defaultFileId",
-        });
       } catch (error) {
-        console.error("Error processing the PDF file:", error);
+        console.error("Error processing the PDF file:", error.message);
       }
       };
       reader.readAsDataURL(file);
@@ -166,6 +154,15 @@ const Home = () => {
     })
     .then(response => {
       console.log(response.data);
+      const message = response.data.content;
+      
+      const newText = {
+        text: message.trim(),
+        type: "ocr",
+        timestamp: new Date().toISOString(),
+      };
+      setInputText((prevText) => [...prevText, newText]);
+  
     })
     .catch(error => {
       console.error("Error querying the AI:", error);
@@ -191,7 +188,6 @@ const Home = () => {
         <div className="flex-grow p-6 overflow-y-auto bg-slate-900/50 rounded-t-xl">
           {inputText.map((chat, index) => (
             <div key={index} className="mb-4">
-              {console.log(chat)}
               
               <div className={`flex ${chat.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`p-3 rounded-xl max-w-[80%] shadow-lg ${
