@@ -1,22 +1,9 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import axios from 'axios';
 
 const FileUploader = ({ onFileUpload }) => {
-  const onDrop = useCallback(async (acceptedFiles) => {
-    const formData = new FormData();
-    formData.append('file', acceptedFiles[0]);
-
-    try {
-      const response = await axios.post('http://localhost:3000/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      onFileUpload(response.data.url);
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
+  const onDrop = useCallback((acceptedFiles) => {
+    onFileUpload(acceptedFiles);
   }, [onFileUpload]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
