@@ -7,7 +7,7 @@ import {queryDocument , addDocuments} from '../db/chromaSetup.js';
 const askGroq = async(prompt , userId , fileId) =>{
 
     const relatedChunks = await queryDocument(prompt  , userId , fileId );
-    const newPrompt = `I have the following info , ${relatedChunks} based on that give me ans to the ${prompt}`
+    const newPrompt = `I have the following info , ${relatedChunks} based on that give me ans to the ${prompt} , if the info have nothing to do with the prompt , then explain prompt well`
     const API_KEY = process.env.GROQ_API_KEY;
     try {
              
