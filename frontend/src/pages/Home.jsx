@@ -152,6 +152,8 @@ const Home = () => {
 
 
   const handleVoiceSave = (audioUrl) => {
+    console.log(audioUrl);
+    
     setRecordedAudio(audioUrl);
   };
 
@@ -168,6 +170,7 @@ const Home = () => {
       timestamp: new Date().toISOString(),
     };
     setInputText((prevText) => [...prevText, newText]);
+    setInputValue("");
     const prompt = inputValue;
     axios.post("http://localhost:3000/ai/ask", {
       prompt: prompt,
@@ -202,21 +205,21 @@ const Home = () => {
     }
   };
   return (
-    <div className="min-h-screen h-[100vh] w-[100vw] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white flex flex-col items-center p-2">
-      <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-violet-400 mb-6">StudyMitra</h1>
+    <div className="min-h-screen h-[100vh] w-[100vw] bg-gray-100 text-gray-900 flex flex-col items-center p-4">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">StudyMitra</h1>
       
-      <div className="h-[calc(100vh-120px)] w-full max-w-3xl flex flex-col flex-grow bg-slate-800/50 rounded-xl shadow-2xl overflow-hidden border border-violet-500/20">
+      <div className="h-[calc(100vh-120px)] w-full max-w-3xl flex flex-col flex-grow bg-white rounded-lg shadow-lg overflow-hidden border border-gray-300">
         {/* Chat Preview Section */}
-        <div className="flex-grow p-6 overflow-y-auto bg-slate-900/50 rounded-t-xl">
+        <div className="flex-grow p-6 overflow-y-auto bg-gray-50 rounded-t-lg">
           {inputText.map((chat, index) => (
             <div key={index} className="mb-4">
               
               <div className={`flex ${chat.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`p-3 rounded-xl max-w-[80%] shadow-lg ${
-                  chat.type === 'user' ? 'bg-teal-500/80 backdrop-blur-sm' : 'bg-violet-500/80 backdrop-blur-sm'
+                <div className={`p-3 rounded-lg max-w-[80%] shadow-md ${
+                  chat.type === 'user' ? 'bg-blue-100' : 'bg-gray-200'
                 }`}>
-                  <p className="text-xs text-gray-200">{new Date(chat.timestamp).toLocaleTimeString()}</p>
-                  <span className="text-xs text-gray-100">{chat.text}</span>
+                  <p className="text-xs text-gray-500">{new Date(chat.timestamp).toLocaleTimeString()}</p>
+                  <span className="text-sm text-gray-800">{chat.text}</span>
                 </div>
               </div>
               {index === inputText.length - 1 && recordedAudio && (
@@ -233,18 +236,20 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div className="p-4 border-t border-violet-500/20 bg-slate-800/50 rounded-b-xl">
+        <div className="p-4 border-t border-gray-300 bg-gray-50 rounded-b-lg">
           <div className="flex items-center gap-3">
             <Input
               type="text"
-              placeholder
+              placeholder="Type your message..."
+              value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleTextButton()}
+              className="flex-grow"
             />
             <Button
               variant="ghost"
               disabled={isLoading}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 p-3 rounded-lg shadow-lg"
+              className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg shadow-md"
               onClick={handleTextButton}
             >
               <Send size={20} className="text-white" />
