@@ -6,6 +6,7 @@ import { Send } from "lucide-react";
 import FileUploader from "@/components/FileUploader";
 import HandwritingInput from "@/components/HandwritingInput";
 import VoiceRecorder from "@/components/VoiceRecorder";
+import axios from 'axios';
 
 const Home = () => {
   const isLoading = false;
@@ -29,8 +30,16 @@ const Home = () => {
     setShowRecorder(false); // Hide the recorder after saving
   };
 
-  const handleTextButton = () => {
+  const handleTextButton = async() => {
     setInputText((prevText) => [...prevText, inputValue]);
+    const prompt = inputValue;
+    const response = await axios.post("http://localhost:3000/ai/ask", {
+      prompt: prompt,
+      userId: "user123", // Replace with actual user ID
+      fileId: "file123"  // Replace with actual file ID
+    });
+    console.log(response);
+    
     setInputValue(""); // Clear the input field after adding the text
     if (recordedAudio) {
       setVoiceData(recordedAudio);
