@@ -5,10 +5,16 @@ import {queryDocument , addDocuments} from '../db/chromaSetup.js';
 
 
 const askGroq = async(prompt , userId , fileId) =>{
-
+    console.log("Prompt",prompt , userId , fileId);
+    
+    if(!prompt || !userId || !fileId){ai
+        return null;
+    }
     const relatedChunks = await queryDocument(prompt  , userId , fileId );
-    const newPrompt = `I have the following info , ${relatedChunks} based on that give me ans to the ${prompt} , if the info have nothing to do with the prompt , then explain prompt well`
+    const newPrompt = `You are a very inteligent model having the following info , ${relatedChunks} based on that give me the best possible ans to the ${prompt} , if the info have nothing to do with the prompt , then summarize prompt well. You are quite smart so you make the a very crisp and precise summary of the prompt.`
+    console.log("New Prompt",newPrompt)
     const API_KEY = process.env.GROQ_API_KEY;
+    console.log("API_KEY",API_KEY)
     try {
              
         const response = await axios.post(

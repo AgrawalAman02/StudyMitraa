@@ -8,66 +8,90 @@ import askGroq from '../ai/aiUtils.js';
 import gemini from '../utils/gemini.js';
 import { geminiImage } from '../utils/gemini.js';
 
-router.post('/addDocument' , async(req , res)=>{
-    const {document , userId  ,fileId} = req?.body;
-    if(!document || !userId || !fileId) {
-        res.status(400).json({success:false , message:"Send a valid document i.e Really large text document"});
+router.post('/addDocument', async (req, res) => {
+    const { document, userId, fileId } = req?.body;
+    if (!document || !userId || !fileId) {
+        res.status(400).json({ success: false, message: "Send a valid document i.e Really large text document" });
         return;
     }
 
     try {
-    const docs = splitTextIntoChunks(document);
-    await addDocuments(docs , userId , fileId );
-    res.status(200).json({message:"Successfully added to docs" , success:true})  
+        const docs = splitTextIntoChunks(document);
+        await addDocuments(docs, userId, fileId);
+        res.status(200).json({ message: "Successfully added to docs", success: true })
     } catch (error) {
-        res.status(500).json({message:"Failed to perform so : " , success:false , error:error.message});
+        res.status(500).json({ message: "Failed to perform so : ", success: false, error: error.message });
     }
 
 })
 
-router.post('/ask' , async(req, res)=>{
-    const {prompt , userId , fileId} = req.body;
-    if(!prompt || !userId || !fileId){
-        res.status(500).json({message:"Please send valid prompt" , success:false});
+router.post('/ask', async (req, res) => {
+    const { prompt, userId, fileId } = req.body;
+    console.log(req.body);
+
+    if (!prompt || !userId || !fileId) {
+        res.status(500).json({ message: "Please send valid prompt", success: false });
         return;
     }
 
-    const content = await askGroq(prompt , userId , fileId);
-    res.status(200).json({message:"Hurray We got the response " , content , success:true , })
+    const content = await askGroq(prompt, userId, fileId);
+    res.status(200).json({ message: "Hurray We got the response ", content, success: true, })
 })
 
-router.get('/askGeminiText' , async(req , res)=>{
-    const {prompt} = req.body;
-    if(!prompt ){
-        res.status(400).json({json:"Please Provide valid prompt" , success:false , error: "Please send valid data"});
-        return;
-    }
+router.post('/askGeminiText', async (req, res) => {
 
-  try {
-    const result = await gemini(prompt);
-    res.status(200).json({message:"Succesfully got the answer" , success:true , content:result});
-    return;
-  } catch (error) {
-    res.status(400).json({json:"Please Provide valid prompt" , success:false , error: error.message});
-    
-  }
-
-})
-
-router.get('/askGeminiImage' , async(req ,res)=>{
-    const {prompt , imgUrl} = req.body;
-    if(!prompt || !imgUrl){
-        res.status(400).json({message:"Please send both image url and prompt"});
+    const prompt = req?.body?.prompt;
+    console.log(prompt);
+    if (!prompt) {
+        res.status(400).json({ json: "Please Provide valid prompt", success: false, error: "Please send valid data" });
         return;
     }
 
     try {
-        const response = await geminiImage(prompt , imgUrl);
-     res.status(200).json({message:"Succesfully parsed" , success:true , content:response});
-     return;
+        const result = await gemini(prompt);
+        res.status(200).json({ message: "Succesfully got the answer", success: true, content: result });
+        return;
     } catch (error) {
-        res.status(400).json({json:"Please Provide valid prompt" , success:false , error: error.message});
+        res.status(400).json({ json: "Please Provide valid prompt", success: false, error: error.message });
+
     }
 
 })
+
+router.get('/askGeminiImage', async (req, res) => {
+    const { prompt, imgUrl } = req.body;
+    if (!prompt || !imgUrl) {
+        res.status(400).json({ message: "Please send both image url and prompt" });
+        return;
+    }
+
+    try {
+        const response = await geminiImage(prompt, imgUrl);
+        res.status(200).json({ message: "Succesfully parsed", success: true, content: response });
+        return;
+    } catch (error) {
+        res.status(400).json({ json: "Please Provide valid prompt", success: false, error: error.message });
+    }
+
+})
+
+
+
+import { YoutubeTranscript } from 'youtube-transcript';
+
+router.post('/transcribeYouTube', async (req, res) => {
+    const { videoUrl } = req.body;
+    if (!videoUrl) {
+        res.status(400).json({ success: false, message: "Please provide a valid YouTube video URL" });
+        return;
+    }
+
+    try {
+        const transcription = await YoutubeTranscript.fetchTranscript(videoUrl);
+        res.status(200).json({ success: true, transcription: transcription });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
 export default router;
