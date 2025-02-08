@@ -9,6 +9,7 @@ import VoiceRecorder from "@/components/VoiceRecorder";
 import { createWorker } from "tesseract.js";
 import ConvertApi from 'convertapi-js'
 import axios from 'axios';
+
 const Home = () => {
   const isMeaninglessText = (text) => {
     if (!text || typeof text !== "string") return true; // Handle empty/null cases
@@ -36,7 +37,7 @@ const Home = () => {
   console.log(isMeaninglessText("12@#&*@#*")); // true (meaningless)
   console.lo
   
-  const isLoading = false;
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
   const [inputValue, setInputValue] = useState("");
   const [inputText, setInputText] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -49,6 +50,15 @@ const Home = () => {
     
     setUploadedFiles(files);
     const file = files[0];
+
+    setIsLoading(true); // Set loading to true
+
+    const loadingMessage = {
+      text: "Processing file, please wait...",
+      type: "system",
+      timestamp: new Date().toISOString(),
+    };
+    setInputText((prevText) => [...prevText, loadingMessage]);
 
     // Process Image with Tesseract.js
     if (file.type.startsWith("image/")) {
@@ -65,7 +75,7 @@ const Home = () => {
               type: "ocr",
               timestamp: new Date().toISOString(),
             };
-            setInputText((prevText) => [...prevText, newText]);
+            setInputText((prevText) => [...prevText.slice(0, -1), newText]);
             return;
           }
 
@@ -75,7 +85,7 @@ const Home = () => {
             timestamp: new Date().toISOString(),
           };
 
-          setInputText((prevText) => [...prevText, newText]);
+          setInputText((prevText) => [...prevText.slice(0, -1), newText]);
 
           const response = await axios.post("http://localhost:3000/ai/addDocument", {
             document: text.trim(),
@@ -88,6 +98,7 @@ const Home = () => {
           console.error("Error processing the image file:", error);
         } finally {
           await worker.terminate();
+          setIsLoading(false); // Set loading to false
         }
     }
 
@@ -129,7 +140,7 @@ const Home = () => {
           type: "ocr",
           timestamp: new Date().toISOString(),
         };
-        setInputText((prevText) => [...prevText, newTextFromPdf]);
+        setInputText((prevText) => [...prevText.slice(0, -1), newTextFromPdf]);
 
         const result = await axios.post("http://localhost:3000/ai/addDocument", {
           document: text.trim(),
@@ -142,14 +153,14 @@ const Home = () => {
 
       } catch (error) {
         console.error("Error processing the PDF file:", error.message);
+      } finally {
+        setIsLoading(false); // Set loading to false
       }
       };
       reader.readAsDataURL(file);
     }
 
 };
-
-
 
   const handleVoiceSave = (audioUrl) => {
     console.log(audioUrl);
@@ -216,7 +227,7 @@ const Home = () => {
               
               <div className={`flex ${chat.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`p-3 rounded-lg max-w-[80%] shadow-md ${
-                  chat.type === 'user' ? 'bg-blue-100' : 'bg-gray-200'
+                  chat.type === 'user' ? 'bg-blue-100' : chat.type === 'system' ? 'bg-yellow-100' : 'bg-gray-200'
                 }`}>
                   <p className="text-xs text-gray-500">{new Date(chat.timestamp).toLocaleTimeString()}</p>
                   <span className="text-sm text-gray-800">{chat.text}</span>
