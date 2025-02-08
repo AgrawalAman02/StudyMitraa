@@ -10,6 +10,32 @@ import { createWorker } from "tesseract.js";
 import ConvertApi from 'convertapi-js'
 import axios from 'axios';
 const Home = () => {
+  const isMeaninglessText = (text) => {
+    if (!text || typeof text !== "string") return true; // Handle empty/null cases
+  
+    const MIN_TEXT_LENGTH = 20; // Ensures minimum content requirement
+    if (text.trim().length < MIN_TEXT_LENGTH) return true;
+  
+    // Regex patterns for detecting meaningless text
+    const meaninglessPatterns = [
+      /^[^a-zA-Z0-9]+$/, // Only symbols or whitespace
+      /^(\W|\d)*$/, // Only numbers or non-word characters
+      /^(.)(\1{5,})$/, // Highly repetitive single character (aaaaa, $$$$$)
+      /^[#@!$%^&*()_+={}[\]|:;"'<>,.?/~`-]+$/, // Just symbols
+      /^[A-Za-z]{1,2}$/, // Single or double random letters
+    ];
+  
+    return meaninglessPatterns.some((pattern) => pattern.test(text));
+  };
+  
+  // ✅ Test Cases
+  console.log(isMeaninglessText("    ")); // true (empty)
+  console.log(isMeaninglessText("!!@@###***")); // true (only symbols)
+  console.log(isMeaninglessText("aaaaaa")); // true (repetitive)
+  console.log(isMeaninglessText("Hello world! This is extracted text.")); // false (valid text)
+  console.log(isMeaninglessText("12@#&*@#*")); // true (meaningless)
+  console.lo
+  
   const isLoading = false;
   const [inputValue, setInputValue] = useState("");
   const [inputText, setInputText] = useState([]);
@@ -26,46 +52,42 @@ const Home = () => {
 
     // Process Image with Tesseract.js
     if (file.type.startsWith("image/")) {
-        const worker = await createWorker();
-        await worker.load();
-        await worker.reinitialize("eng");
-
-        const imageURL = URL.createObjectURL(file);
         try {
-            const { data: { text } } = await worker.recognize(imageURL);
-            
-            if (!text || text.trim() === "") {
-          throw new Error("No text could be extracted from the image");
-            }
+          const worker = await createWorker();
+          await worker.load();
+          await worker.reinitialize("eng");
 
+          const { data: { text } } = await worker.recognize(file);
+
+          if (!text || text.trim() === "" || isMeaninglessText(text)) {
             const newText = {
-              text: text.trim(),
+              text: "Image doesn't contain valid text",
               type: "ocr",
               timestamp: new Date().toISOString(),
             };
-         
-
             setInputText((prevText) => [...prevText, newText]);
-            
-            const response = await axios.post("http://localhost:3000/ai/addDocument", {
-              document: text.trim(),
-              userId: "user123",
-              fileId: "defaultFileId"
-            });
+            return;
+          }
 
+          const newText = {
+            text: text.trim(),
+            type: "ocr",
+            timestamp: new Date().toISOString(),
+          };
 
-            const nextOcrChat = {
-              text: inputValue.trim(),
-              type: "ocr",
-              timestamp: new Date().toISOString(),
-            };
-            setInputText((prevText) => [...prevText, nextOcrChat]);
-            
+          setInputText((prevText) => [...prevText, newText]);
+
+          const response = await axios.post("http://localhost:3000/ai/addDocument", {
+            document: text.trim(),
+            userId: "user123",
+            fileId: "defaultFileId"
+          });
+
+          console.log("Document added:", response.data);
         } catch (error) {
-            console.error("Error processing the image file:", error);
+          console.error("Error processing the image file:", error);
         } finally {
-            URL.revokeObjectURL(imageURL);
-            await worker.terminate();
+          await worker.terminate();
         }
     }
 
