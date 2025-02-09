@@ -473,6 +473,14 @@ useEffect(() => {
   return (
     <div className=" min-h-[100vh] w-[100vw] bg-gradient-to-b from-blue-50 to-white flex flex-col items-center p-4">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">StudyMitra</h1>
+      <div className="mb-4 p-4 bg-gray-100 rounded shadow">
+        <p>
+          <strong>User Status:</strong> {storeIdle ? "Idle" : "Active"}
+        </p>
+        <p>
+          <strong>Last Activity:</strong> {new Date(lastActivity).toLocaleTimeString()}
+        </p>
+      </div>
 
       <div className="h-[calc(100vh-100px)] w-full max-w-7xl flex flex-col flex-grow bg-white rounded-xl shadow-xl overflow-y-scroll border border-gray-200">
       <div {...getRootProps()} className="flex-grow relative">
