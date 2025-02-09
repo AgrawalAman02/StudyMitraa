@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@radix-ui/react-select";
@@ -10,9 +10,14 @@ import axios from 'axios';
 import { useDropzone } from "react-dropzone";
 import { marked } from "marked";
 import { Send, Mic, Upload, Youtube } from "lucide-react";
-
+import { useDispatch, useSelector } from "react-redux";
+import useUserActivity from "@/hooks/useUserActivity";
+import { setIsIdle } from "@/store/userActivitySlice";
 
 const Home = () => {
+  const dispatch = useDispatch();// track isIdle from the hook 
+  const { isIdle, lastActivity } = useUserActivity(30000); // 30s or your chosen timeout
+  const storeIdle = useSelector((state) => state.userActivity.isIdle);
   const isMeaninglessText = (text) => {
     if (!text || typeof text !== "string") return true; // Handle empty/null cases
 
@@ -274,8 +279,25 @@ const Home = () => {
     }
   };
 
+useEffect(() => { // Whenever isIdle changes, dispatch it to Redux 
+  dispatch(setIsIdle(isIdle)); 
+}, [isIdle, dispatch]);
 
+useEffect(() => {
+  const handleVisibilityChange = () => {
+    if (document.hidden) {
+      alert("You had minimised tabs!");
+    } else {
+      alert("Welcome back to the tab after tab switch!");
+    }
+  };
 
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  return () => {
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+  };
+}, []);
 
 
   const transcribeHelper = async (youtubeUrl) => {
@@ -501,6 +523,15 @@ const Home = () => {
   return (
     <div className=" min-h-[100vh] w-[100vw] bg-gradient-to-b from-blue-50 to-white flex flex-col items-center p-4">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">StudyMitra</h1>
+
+      <div className="mb-4 p-4 bg-gray-100 rounded shadow">
+        <p>
+          <strong>User Status:</strong> {storeIdle ? "Idle" : "Active"}
+        </p>
+        <p>
+          <strong>Last Activity:</strong> {new Date(lastActivity).toLocaleTimeString()}
+        </p>
+      </div>
 
       <div className="h-[calc(100vh-120px)] w-full  flex flex-col flex-grow bg-white rounded-xl shadow-xl overflow-y-scroll border border-gray-200">
         <div {...getRootProps()} className="flex-grow relative">
