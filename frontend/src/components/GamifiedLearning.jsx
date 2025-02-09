@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
-import { Button } from './ui/button';
-import { Progress } from './ui/progress';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
 import { Trophy, Star, Brain, ArrowRight, CheckCircle } from 'lucide-react';
 import axios from 'axios';
 
 const GamifiedLearning = ({ documentContent }) => {
   const [currentChallenge, setCurrentChallenge] = useState(null);
+  const [previousQuestions, setPreviousQuestions] = useState(new Set());
   const [userProgress, setUserProgress] = useState({
     points: 0,
     level: 1,
@@ -19,38 +20,37 @@ const GamifiedLearning = ({ documentContent }) => {
   const generateChallenge = async () => {
     setLoading(true);
     try {
-      // Using the document content to generate a relevant quiz
-      const prompt = `Based on this content: "${documentContent}", generate a multiple choice question with 4 options and mark the correct answer. Return ONLY a JSON object with this exact format without any markdown or code blocks: {"question": "your question here", "options": ["option1", "option2", "option3", "option4"], "correctIndex": correct_answer_index}`;
+      // Modified prompt to ensure variety and prevent repetition
+      const prompt = `Based on this content: "${documentContent}", generate a new and unique multiple choice question (different from previous ones) with 4 options and mark the correct answer. Make sure each question tests a different aspect or concept. Return ONLY a JSON object with this exact format without any markdown or code blocks: {"question": "your question here", "options": ["option1", "option2", "option3", "option4"], "correctIndex": correct_answer_index}. Make the question challenging and different from: ${Array.from(previousQuestions).join(', ')}`;
       
       const response = await axios.post("http://localhost:3000/ai/askGeminiText", {
         prompt: prompt
       });
 
-      // Clean the response string to extract only the JSON part
       const jsonStr = response.data.content
-        .replace(/```json/g, '')    // Remove ```json
-        .replace(/```/g, '')        // Remove remaining ```
-        .trim();                    // Remove whitespace
+        .replace(/```json/g, '')
+        .replace(/```/g, '')
+        .trim();
 
       try {
         const challenge = JSON.parse(jsonStr);
-        // Validate the challenge object has required properties
         if (
           challenge.question &&
           Array.isArray(challenge.options) &&
-          typeof challenge.correctIndex === 'number'
+          typeof challenge.correctIndex === 'number' &&
+          !previousQuestions.has(challenge.question)
         ) {
           setCurrentChallenge(challenge);
+          setPreviousQuestions(prev => new Set([...prev, challenge.question]));
           setSelectedAnswer(null);
           setIsCorrect(null);
         } else {
-          throw new Error('Invalid challenge format');
+          throw new Error('Invalid challenge format or duplicate question');
         }
       } catch (parseError) {
         console.error("Error parsing challenge JSON:", parseError);
-        // Fallback challenge in case of parsing error
         setCurrentChallenge({
-          question: "There was an error generating a question. Please try again.",
+          question: "Error generating question. Please try again.",
           options: ["Option 1", "Option 2", "Option 3", "Option 4"],
           correctIndex: 0
         });
@@ -62,7 +62,6 @@ const GamifiedLearning = ({ documentContent }) => {
     }
   };
 
-  // Rest of the component remains the same...
   const handleAnswerSelection = (index) => {
     setSelectedAnswer(index);
     const correct = index === currentChallenge.correctIndex;
@@ -79,7 +78,7 @@ const GamifiedLearning = ({ documentContent }) => {
   };
 
   return (
-    <div className="w-full text-black max-w-4xl mx-auto p-4 space-y-6">
+    <div className="w-full max-w-4xl mx-auto p-4 space-y-6">
       {/* Progress Section */}
       <Card>
         <CardHeader>
@@ -89,7 +88,7 @@ const GamifiedLearning = ({ documentContent }) => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid  grid-cols-3 gap-4 mb-4">
+          <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="text-center p-4 bg-blue-50 rounded-lg">
               <Star className="w-6 h-6 text-blue-500 mx-auto mb-2" />
               <div className="font-bold text-2xl text-blue-600">{userProgress.points}</div>
@@ -121,7 +120,7 @@ const GamifiedLearning = ({ documentContent }) => {
             <Button 
               onClick={generateChallenge} 
               disabled={loading}
-              className="bg-blue-500 hover:bg-blue-600"
+              className="bg-blue-500 hover:bg-blue-600 text-white"
             >
               New Challenge
             </Button>
@@ -135,21 +134,21 @@ const GamifiedLearning = ({ documentContent }) => {
             </div>
           ) : currentChallenge ? (
             <div className="space-y-4">
-              <p className="text-lg text-black font-medium">{currentChallenge.question}</p>
-              <div className="space-y-2 ">
+              <p className="text-lg font-medium text-gray-800">{currentChallenge.question}</p>
+              <div className="space-y-2">
                 {currentChallenge.options.map((option, index) => (
                   <Button
                     key={index}
                     onClick={() => handleAnswerSelection(index)}
                     disabled={isCorrect !== null}
-                    className={`w-full  justify-start p-4 ${
+                    className={`w-full justify-start p-4 ${
                       selectedAnswer === index
                         ? isCorrect
-                          ? 'bg-green-500 hover:bg-green-600'
-                          : 'bg-red-500 hover:bg-red-600'
+                          ? 'bg-green-500 hover:bg-green-600 text-white'
+                          : 'bg-red-500 hover:bg-red-600 text-white'
                         : selectedAnswer !== null && index === currentChallenge.correctIndex
-                        ? 'bg-green-500 hover:bg-green-600'
-                        : 'bg-gray-100 hover:bg-gray-200'
+                        ? 'bg-green-500 hover:bg-green-600 text-white'
+                        : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                     }`}
                   >
                     <span className="mr-2">{String.fromCharCode(65 + index)}.</span>
