@@ -45,7 +45,7 @@ const NoteEditor = () => {
     };
 
     return (
-        <div className="w-1/2 p-4">
+        <div className="w-1/2  p-4">
             <Card>
                 <CardHeader>
                     <CardTitle>Rich Text Editor</CardTitle>

@@ -471,9 +471,9 @@ useEffect(() => {
     }
   };
   return (
-    <div className=" min-h-[100vh] w-[100vw] bg-gradient-to-b from-blue-50 to-white flex flex-col items-center p-4">
+    <div className=" min-h-[100vh] w-[50vw] bg-gradient-to-b from-blue-50 to-white flex flex-col items-center p-4">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">StudyMitra</h1>
-      <div className="mb-4 p-4 bg-gray-100 rounded shadow">
+      <div className="mb-4 p-4 position : absolute top-10 right-0 bg-gray-100 rounded shadow">
         <p>
           <strong>User Status:</strong> {storeIdle ? "Idle" : "Active"}
         </p>

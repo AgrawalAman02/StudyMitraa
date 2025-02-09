@@ -8,7 +8,7 @@ import VideoAnalysis from './pages/VideoUpload'
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Note />,
   },
   {
     path : "/auth",
@@ -20,7 +20,7 @@ const appRouter = createBrowserRouter([
   },
   {
     path:"/notes" , 
-    element:<Note/>
+    element:<Home/>
   },
   {
     path:'/ttsx',
