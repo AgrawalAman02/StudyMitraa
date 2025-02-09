@@ -63,3 +63,465 @@
 [32mINFO[0m:     [08-02-2025 08:16:43] ::1:63193 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
 [36mDEBUG[0m:    [08-02-2025 08:17:49] Collection study_mitra_docs already exists, returning existing collection.
 [32mINFO[0m:     [08-02-2025 08:17:49] ::1:63249 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[33mWARNING[0m:  [09-02-2025 02:51:10] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [09-02-2025 02:51:11] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component System
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component SqliteDB
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component SimpleQuotaEnforcer
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component Posthog
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component LocalExecutor
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component SegmentAPI
+[36mDEBUG[0m:    [09-02-2025 02:51:11] Starting component SimpleAsyncRateLimitEnforcer
+[32mINFO[0m:     [09-02-2025 02:51:11] Started server process [[36m13592[0m]
+[32mINFO[0m:     [09-02-2025 02:51:11] Waiting for application startup.
+[32mINFO[0m:     [09-02-2025 02:51:11] Application startup complete.
+[32mINFO[0m:     [09-02-2025 02:51:11] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [09-02-2025 02:52:33] ::1:59056 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 02:52:33] ::1:59057 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 02:52:33] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 02:52:33] ::1:59056 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 02:52:34] Starting component PersistentLocalHnswSegment
+[32mINFO[0m:     [09-02-2025 02:52:35] ::1:59056 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 02:52:35] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 02:52:35] ::1:59057 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 02:52:35] ::1:59056 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 02:56:58] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 02:56:58] ::1:59234 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 02:57:00] ::1:59234 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 02:57:56] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 02:57:56] ::1:59274 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 02:57:58] ::1:59274 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:00:48] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:00:48] ::1:59406 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:00:50] ::1:59406 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:01:12] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:01:12] ::1:59422 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:01:14] ::1:59422 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:05:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:05:47] ::1:59606 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:05:49] ::1:59606 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:29] ::1:60069 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:30] ::1:60071 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:30] ::1:60072 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:19:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:19:30] ::1:60071 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:33] ::1:60071 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:19:33] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:19:33] ::1:60072 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:33] ::1:60071 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:43] ::1:60088 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:43] ::1:60089 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:19:43] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:19:43] ::1:60088 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:53] ::1:60097 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:53] ::1:60098 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:19:53] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:19:53] ::1:60097 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:55] ::1:60097 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:19:55] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:19:55] ::1:60098 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:19:55] ::1:60097 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:26:47] ::1:60380 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:26:47] ::1:60381 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:26:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:26:47] ::1:60380 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:00] ::1:60396 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:27:00] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:00] ::1:60397 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:00] ::1:60396 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:30] ::1:60421 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:30] ::1:60423 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:27:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:30] ::1:60421 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:32] ::1:60421 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:27:32] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:32] ::1:60423 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:32] ::1:60421 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:40] ::1:60437 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:40] ::1:60438 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:27:40] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:40] ::1:60437 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:43] ::1:60444 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:43] ::1:60445 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:27:43] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:43] ::1:60444 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:45] ::1:60444 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:27:45] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:27:45] ::1:60445 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:27:45] ::1:60444 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:28:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:28:47] ::1:60501 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:28:49] ::1:60501 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:29:26] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:29:26] ::1:60530 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:29:28] ::1:60530 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:31:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:31:47] ::1:60608 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:31:49] ::1:60608 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:34:11] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:34:11] ::1:60698 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:34:13] ::1:60698 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[32mINFO[0m:     [09-02-2025 03:42:16] ::1:61012 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:42:16] ::1:61013 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:42:16] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:42:16] ::1:61012 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:42:18] ::1:61012 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:42:18] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:42:18] ::1:61013 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:42:18] ::1:61012 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:43:02] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:43:02] ::1:61053 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:43:04] ::1:61053 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:51:44] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:51:44] ::1:61426 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:51:57] ::1:61434 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 03:52:29] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:52:29] ::1:61454 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:52:31] ::1:61454 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 03:55:08] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 03:55:08] ::1:61595 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 03:55:10] ::1:61595 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:01:10] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:01:10] ::1:61854 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:01:23] ::1:61865 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:03:39] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:03:39] ::1:61977 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:03:40] ::1:61977 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:04:15] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:04:15] ::1:62013 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:04:16] ::1:62013 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:10:25] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:10:25] ::1:62265 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:10:49] ::1:62304 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:14:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:14:47] ::1:62478 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:14:49] ::1:62478 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:15:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:15:30] ::1:62518 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:15:31] ::1:62518 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 04:15:37] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:15:37] ::1:62528 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:15:38] ::1:62528 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:17:35] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:17:35] ::1:62605 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:17:37] ::1:62605 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:18:12] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:18:12] ::1:62643 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:18:13] ::1:62643 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:19:25] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:19:25] ::1:62706 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:19:26] ::1:62706 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 04:19:31] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:19:31] ::1:62715 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:19:33] ::1:62715 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:21:49] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:21:49] ::1:62819 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:21:51] ::1:62819 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:23:13] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:23:13] ::1:62881 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:23:22] ::1:62890 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:24:12] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:24:12] ::1:62942 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:24:13] ::1:62942 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:26:13] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:26:13] ::1:63025 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:26:15] ::1:63025 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:31:35] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:31:35] ::1:63326 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:31:37] ::1:63326 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:32:18] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:32:18] ::1:63383 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:32:19] ::1:63383 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 04:33:45] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:33:45] ::1:63439 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:33:46] ::1:63439 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 04:33:51] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:33:51] ::1:63447 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:33:51] ::1:63447 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/query HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 04:37:28] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 04:37:28] ::1:63563 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 04:37:29] ::1:63563 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:00] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:00] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:02] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:02] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:02] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:03] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:03] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:03] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:04] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:04] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:04] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:04] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:05] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:05] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:05] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:06] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:06] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:06] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:07] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:07] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:09] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:10] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:10] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:10] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:12] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:12] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:12] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:13] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:13] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:14] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:15] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:15] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:16] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:17] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:17] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:18] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:19] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:19] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:19] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:19] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:19] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:20] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:20] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:20] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:21] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:21] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:21] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:22] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:22] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:22] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:23] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:23] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:23] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:24] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:24] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:24] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:25] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:25] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:25] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:26] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:26] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:26] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:27] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:27] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:27] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:28] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:28] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:28] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:28] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:29] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:29] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:29] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:30] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:30] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:09:31] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:09:31] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:09:31] ::1:64803 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:16] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:16] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:18] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:18] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:18] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:19] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:19] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:19] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:19] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:20] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:20] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:20] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:21] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:21] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:21] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:22] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:22] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:22] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:23] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:23] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:23] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:24] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:24] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:24] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:25] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:25] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:25] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:26] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:26] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:26] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:27] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:27] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:28] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:28] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:28] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:29] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:29] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:29] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:30] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:30] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:30] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:31] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:31] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:31] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:32] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:32] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:32] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:10:32] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:10:32] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:10:33] ::1:64867 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:37] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:37] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:38] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:38] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:38] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:39] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:39] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:39] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:40] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:40] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:40] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:41] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:41] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:41] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:42] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:42] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:42] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:43] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:43] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:43] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:43] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:44] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:44] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:44] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:45] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:45] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:46] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:47] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:47] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:47] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:48] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:48] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:49] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:49] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:49] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:50] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:50] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:50] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:51] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:51] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:51] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:52] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:52] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:52] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:53] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:53] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:53] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:53] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:54] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:54] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:54] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:54] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:54] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:55] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:55] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:55] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:56] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:56] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:56] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:57] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:57] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:57] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:58] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:58] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:58] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:59] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:15:59] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:15:59] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:15:59] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:16:00] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:16:00] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:16:00] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:16:00] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:16:00] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:16:01] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:16:01] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:16:01] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:16:02] ::1:65182 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:07] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:07] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:09] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:10] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:10] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:10] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:11] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:11] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:11] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:12] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:12] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:13] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:13] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:13] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:14] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:15] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:15] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:15] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:16] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:16] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:17] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:18] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:18] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:18] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:19] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:19] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:20] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:21] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:21] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:21] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:22] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:22] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:23] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:24] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:24] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:24] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:25] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:25] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:26] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:26] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:26] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:27] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:27] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:27] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:28] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:29] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:29] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:29] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:18:30] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:18:30] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:18:30] ::1:65293 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[32mINFO[0m:     [09-02-2025 05:20:08] ::1:65361 - "GET /api/v2/tenants/default_tenant HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:20:08] ::1:65362 - "GET /api/v2/tenants/default_tenant/databases/default_database HTTP/1.1" 200
+[36mDEBUG[0m:    [09-02-2025 05:20:08] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:20:08] ::1:65361 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:20:10] ::1:65361 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/add HTTP/1.1" 201
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Collection study_mitra_docs already exists, returning existing collection.
+[32mINFO[0m:     [09-02-2025 05:20:10] ::1:65362 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:20:10] ::1:65361 - "POST /api/v2/tenants/default_tenant/databases/default_database/collections/2100bc4d-18c6-4c14-96f2-c071c678e379/get HTTP/1.1" 200
+[32mINFO[0m:     [09-02-2025 05:20:10] Shutting down
+[32mINFO[0m:     [09-02-2025 05:20:10] Waiting for application shutdown.
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component System
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component SegmentAPI
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component LocalExecutor
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component PersistentLocalHnswSegment
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component SimpleAsyncRateLimitEnforcer
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component Posthog
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component SimpleQuotaEnforcer
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component SqliteDB
+[36mDEBUG[0m:    [09-02-2025 05:20:10] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [09-02-2025 05:20:10] Application shutdown complete.
+[32mINFO[0m:     [09-02-2025 05:20:10] Finished server process [[36m13592[0m]

@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
 
-
+import VideoAnalysis from './pages/VideoUpload'
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -12,6 +12,10 @@ const appRouter = createBrowserRouter([
   {
     path : "/auth",
     element : <Auth />
+  }, 
+  {
+    path:"/video" , 
+    element:<VideoAnalysis/>
   }
 ])
 

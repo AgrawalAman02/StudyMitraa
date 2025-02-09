@@ -1,22 +1,23 @@
 import axios from "axios";
 import dotenv from 'dotenv'
 dotenv.config();
-import {queryDocument , addDocuments} from '../db/chromaSetup.js';
+import { queryDocument, addDocuments } from '../db/chromaSetup.js';
 
 
-const askGroq = async(prompt , userId , fileId) =>{
-    console.log("Prompt",prompt , userId , fileId);
-    
-    if(!prompt || !userId || !fileId){ai
+const askGroq = async (prompt, userId, fileId) => {
+    console.log("Prompt", prompt, userId, fileId);
+
+    if (!prompt || !userId || !fileId) {
+        ai
         return null;
     }
-    const relatedChunks = await queryDocument(prompt  , userId , fileId );
-    const newPrompt = `You are a very inteligent model having the following info , ${relatedChunks} based on that give me the best possible ans to the ${prompt} , if the info have nothing to do with the prompt , then summarize prompt well. You are quite smart so you make the a very crisp and precise summary of the prompt.`
-    console.log("New Prompt",newPrompt)
+    const relatedChunks = await queryDocument(prompt, userId, fileId);
+    const newPrompt = `These are the context (i.e notes provided by student ) ${relatedChunks} \n\n and he have the query of ${prompt}, give him answer based on that , also make sure your answers are authentic. in if possible give it in markdown format or proper format (easy to understand and learn way)`
+    console.log("New Prompt", newPrompt)
     const API_KEY = process.env.GROQ_API_KEY;
-    console.log("API_KEY",API_KEY)
+    console.log("API_KEY", API_KEY)
     try {
-             
+
         const response = await axios.post(
             "https://api.groq.com/openai/v1/chat/completions",
             {
@@ -28,7 +29,7 @@ const askGroq = async(prompt , userId , fileId) =>{
                 headers: { Authorization: `Bearer ${API_KEY}` }
             }
         );
-        
+
         return response.data.choices[0].message.content;
     } catch (error) {
         console.log(error.message);
