@@ -13,7 +13,7 @@ import { Send, Mic, Upload, Youtube } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import useUserActivity from "@/hooks/useUserActivity";
 import { setIsIdle } from "@/store/userActivitySlice";
-
+import GamifiedLearning from '../components/GamifiedLearning'
 const Home = () => {
   const dispatch = useDispatch();// track isIdle from the hook 
   const { isIdle, lastActivity } = useUserActivity(30000); // 30s or your chosen timeout
@@ -178,7 +178,7 @@ const Home = () => {
 
         const summaryText = {
           text: summary.trim(),
-          type: "ocr",
+          sender: "ocr",
           subtype: "summarization",
           timestamp: new Date().toISOString(),
         };
@@ -227,56 +227,6 @@ const Home = () => {
       handlePdf(file);
     }
 
-    // Process Video
-    if (file.type.startsWith("video/")) {
-      const videoUrl = URL.createObjectURL(file);
-      setInputText((prevText) => [
-        ...prevText,
-        {
-          text: "Video uploaded successfully.",
-          type: "video",
-          videoUrl,
-          timestamp: new Date().toISOString(),
-        },
-      ]);
-
-      try {
-        const extractedFrames = await extractFrames(file);
-        const processedFrames = await Promise.all(
-          extractedFrames.map(processFrame)
-        );
-
-        const validFrames = processedFrames.filter(frame => frame && frame.text);
-        const combinedText = validFrames
-          .map(frame => `Time ${frame.time}s: ${frame.text}`)
-          .join('\n');
-
-        await axios.post("http://localhost:3000/ai/addDocument", {
-          document: combinedText,
-          userId: "video-analysis",
-          fileId: file.name
-        });
-
-        const summaryResponse = await axios.post("http://localhost:3000/ai/askGeminiText", {
-          prompt: `${combinedText}\n summarize the above document in easy to understand way with proper context information`,
-        });
-
-        const summary = summaryResponse.data.content;
-        setInputText((prevText) => [
-          ...prevText,
-          {
-            text: summary.trim(),
-            type: "text",
-            subtype: "summarization",
-            timestamp: new Date().toISOString(),
-          },
-        ]);
-      } catch (error) {
-        console.error('Error processing video:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
   };
 
 useEffect(() => { // Whenever isIdle changes, dispatch it to Redux 
@@ -389,7 +339,7 @@ useEffect(() => {
 
         const newText = {
           text: message.trim(),
-          type: "ocr",
+          sender: "ocr",
           timestamp: new Date().toISOString(),
         };
         setInputText((prevText) => [...prevText, newText]);
@@ -421,6 +371,7 @@ useEffect(() => {
     noClick: true,
     noKeyboard: true
   });
+
 
   const renderMessageContent = (chat) => {
     switch (chat.type) {
@@ -519,98 +470,127 @@ useEffect(() => {
         return <div className="prose prose-sm max-w-none" dangerouslySetInnerHTML={{ __html: marked(chat.text) }} />;
     }
   };
-
   return (
     <div className=" min-h-[100vh] w-[100vw] bg-gradient-to-b from-blue-50 to-white flex flex-col items-center p-4">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">StudyMitra</h1>
 
-      <div className="mb-4 p-4 bg-gray-100 rounded shadow">
-        <p>
-          <strong>User Status:</strong> {storeIdle ? "Idle" : "Active"}
-        </p>
-        <p>
-          <strong>Last Activity:</strong> {new Date(lastActivity).toLocaleTimeString()}
-        </p>
-      </div>
-
-      <div className="h-[calc(100vh-120px)] w-full  flex flex-col flex-grow bg-white rounded-xl shadow-xl overflow-y-scroll border border-gray-200">
-        <div {...getRootProps()} className="flex-grow relative">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            {isDragActive && (
-              <div className="bg-blue-50 bg-opacity-90 w-full h-full flex items-center justify-center">
-                <div className="text-center">
-                  <Upload className="w-12 h-12 text-blue-500 mx-auto mb-2" />
-                  <p className="text-blue-600 font-medium">Drop your files here</p>
-                </div>
-              </div>
-            )}
+      <div className="h-[calc(100vh-100px)] w-full max-w-7xl flex flex-col flex-grow bg-white rounded-xl shadow-xl overflow-y-scroll border border-gray-200">
+      <div {...getRootProps()} className="flex-grow relative">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {isDragActive && (
+          <div className="bg-blue-50 bg-opacity-90 w-full h-full flex items-center justify-center">
+          <div className="text-center">
+            <Upload className="w-8 h-8 sm:w-12 sm:h-12 text-blue-500 mx-auto mb-2" />
+            <p className="text-sm sm:text-base text-blue-600 font-medium">Drop your files here</p>
           </div>
-
-          <div className="h-full p-6 overflow-y-auto">
-            {inputText.map((chat, index) => (
-              <div key={index} className="mb-4">
-                <div className={`flex ${chat.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`p-4 rounded-xl max-w-[80%] ${chat.type === 'user'
-                    ? 'bg-blue-500 text-white'
-                    : chat.type === 'system'
-                      ? 'bg-yellow-50 border border-yellow-200'
-                      : 'bg-gray-50 border border-gray-200'
-                    }`}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs opacity-75">
-                        {new Date(chat.timestamp).toLocaleTimeString()}
-                      </span>
-                    </div>
-                    {renderMessageContent(chat)}
-                  </div>
-                </div>
-              </div>
-            ))}
-            <div ref={chatEndRef} />
           </div>
+        )}
         </div>
 
-        <div className="p-4 bg-white border-t border-gray-200">
-          <div className="flex gap-4 mb-4">
-            {showRecorder ? (
-              <div className="w-full bg-gray-50 rounded-lg p-4">
-                <VoiceRecorder
-                  onSave={(url) => {
-                    setRecordedAudio(url);
-                    setShowRecorder(false);
-                  }}
-                />
-              </div>
-            ) : (
-              <div className="flex w-full gap-2">
-                <Input
-                  type="text"
-                  placeholder="Type your message or paste YouTube URL..."
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleTextButton()}
-                  className="flex-grow"
-                />
-                <Button
-                  onClick={() => setShowRecorder(true)}
-                  className="bg-gray-100 hover:bg-gray-200 p-2 rounded-lg"
-                >
-                  <Mic className="w-5 h-5 text-gray-600" />
-                </Button>
-                <Button
-                  disabled={isLoading}
-                  onClick={handleTextButton}
-                  className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg"
-                >
-                  <Send className="w-5 h-5" />
-                </Button>
-              </div>
-            )}
-          </div>
+        <div className="h-full p-3 sm:p-6 overflow-y-auto">
+        {inputText.map((chat, index) => (
+  <div key={index} className="mb-3 sm:mb-4">
+    <div className={`flex ${chat.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+      <div className={`p-3 sm:p-4 rounded-xl max-w-[90%] sm:max-w-[80%] ${
+        chat.sender === 'user'
+          ? 'bg-blue-500 text-white'
+          : chat.sender === 'system'
+          ? 'bg-yellow-50 border border-yellow-200'
+          : chat.sender === 'ocr'
+          ? 'bg-green-50 border border-green-200'  // Highlight OCR messages
+          : 'bg-gray-50 border border-gray-200'
+      }`}>
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-xs opacity-75">
+            {chat.timestamp ? new Date(chat.timestamp).toLocaleTimeString() : 'Invalid Date'}
+          </span>
         </div>
+        {renderMessageContent(chat)}
+        
+        {chat.sender === 'ocr' && (
+  <button
+    onClick={() => {
+      if (!chat.text) return alert("No text to speak!"); 
+
+      const speech = new SpeechSynthesisUtterance(chat.text);
+
+      // Improved Hindi Detection
+      const isHindi = /[\u0900-\u097F]/.test(chat.text);
+      speech.lang = isHindi ? "hi-IN" : "en-US";
+
+      // Fix: Cancel any ongoing speech before speaking
+      speechSynthesis.cancel();
+      speechSynthesis.speak(speech);
+    }}
+    className="mt-2 px-3 w-[100px] h-[100px] py-1 text-sm z-[100] bg-green-500 text-black rounded hover:bg-green-600 transition"
+  >
+    🔊 Speak
+  </button>
+        )}
+
+
       </div>
     </div>
-  );
-};
+  </div>
+))}
+
+        
+  {inputText.length > 0 && (    
+    <GamifiedLearning 
+      documentContent={inputText
+        .filter(msg => msg.type === 'text' || msg.type === 'pdf')
+        .map(msg => msg.text)
+        .join('\n')}
+    />
+  )}
+
+        <div ref={chatEndRef} />
+        </div>
+      </div>
+
+      <div className="p-2 sm:p-4 bg-white border-t border-gray-200">
+        <div className="flex gap-2 sm:gap-4 mb-2 sm:mb-4">
+        {showRecorder ? (
+          <div className="w-full bg-gray-50 rounded-lg p-2 sm:p-4">
+          <VoiceRecorder
+            onSave={(url) => {
+            setRecordedAudio(url);
+            setShowRecorder(false);
+            }}
+          />
+          </div>
+
+          
+        ) : (
+          <div className="flex w-full gap-1 sm:gap-2">
+          <Input
+            type="text"
+            placeholder="Type message or YouTube URL..."
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleTextButton()}
+            className="flex-grow text-sm sm:text-base"
+          />
+          <Button
+            onClick={() => setShowRecorder(true)}
+            className="bg-gray-100 hover:bg-gray-200 p-1.5 sm:p-2 rounded-lg"
+          >
+            <Mic className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+          </Button>
+          <Button
+            disabled={isLoading}
+            onClick={handleTextButton}
+            className="bg-blue-500 hover:bg-blue-600 text-white p-1.5 sm:p-2 rounded-lg"
+          >
+            <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+          </Button>
+          </div>
+        )}
+        </div>
+      </div>
+      </div>
+    </div>
+    );
+  };
 
 export default Home;
