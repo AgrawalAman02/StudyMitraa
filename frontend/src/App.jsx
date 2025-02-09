@@ -2,7 +2,8 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
-
+import Note from './pages/Note'
+import TTSX from './pages/TTSX'
 import VideoAnalysis from './pages/VideoUpload'
 const appRouter = createBrowserRouter([
   {
@@ -16,6 +17,14 @@ const appRouter = createBrowserRouter([
   {
     path:"/video" , 
     element:<VideoAnalysis/>
+  },
+  {
+    path:"/notes" , 
+    element:<Note/>
+  },
+  {
+    path:'/ttsx',
+    element:<TTSX/>
   }
 ])
 
