@@ -42,7 +42,7 @@
     "react-voice-visualizer": "^2.0.4",
     "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.1",
-    "tesseract.js": "^2.1.0",
+    "tesseract.js": "^6.0.0",
     "tsx": "^4.19.2",
     "vosk-browser": "^0.0.8",
     "youtube-dl-exec": "^3.0.15",
